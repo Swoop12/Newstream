@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DVMNewsApiClient.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DVMHeadlinesTableViewController : UITableViewController
+
+@property(nonatomic, readwrite) NSArray<DVMNews *> *articles;
 
 @end
 

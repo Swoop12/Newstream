@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)fetchImageForUrl:(NSString *)imageUrlString withBlock: (void (^)(UIImage * _Nullable photo))block;
 
++(void)fetchAllNewsWithKeyword:(NSString *)keyword andCompletion:(void (^)(NSArray<DVMNews *> * _Nullable articles))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

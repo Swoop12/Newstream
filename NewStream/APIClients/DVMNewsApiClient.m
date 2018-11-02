@@ -12,14 +12,59 @@
 @implementation DVMNewsApiClient
 
 +(NSString *)baseUrlString{
-    return @"https://newsapi.org/v2/top-headlines";
+    return @"https://newsapi.org/v2";
+}
+
++ (void)fetchAllNewsWithKeyword:(NSString *)keyword andCompletion:(void (^)(NSArray<DVMNews *> * _Nullable))completion
+{
+    //1) Construct Our URL
+    NSURL *baseurl = [[NSURL alloc] initWithString: [DVMNewsApiClient baseUrlString]];
+    NSURL *everythingUrl = [baseurl URLByAppendingPathComponent:@"everything"];
+    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:everythingUrl resolvingAgainstBaseURL:true];
+    NSURLQueryItem *apiKeyQuery = [[NSURLQueryItem alloc] initWithName:@"apiKey" value: DVMNewsApiClient.apiKey];
+    NSURLQueryItem *userQuery = [[NSURLQueryItem alloc] initWithName:@"q" value:keyword];
+    [components setQueryItems: [[NSArray alloc] initWithObjects: apiKeyQuery, userQuery, nil]];
+    NSURL *finalUrl = [components URL];
+    
+    NSLog(@"%@", [finalUrl absoluteString]);
+    
+    //2) DataTask
+    [[[NSURLSession sharedSession] dataTaskWithURL:finalUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error){
+            NSLog(@"Error in %s, %@, %@", __PRETTY_FUNCTION__, error, error.localizedDescription);
+            completion(nil);
+            return;
+        }
+        
+        NSLog(@"%@", response);
+        
+        if (!data){
+            NSLog(@"NO DATA AVailable");
+            completion(nil);
+            return;
+        }
+        
+        NSDictionary *jsonDictioanry = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        NSArray<NSDictionary *> *articleDictionaries = jsonDictioanry[@"articles"];
+        
+        NSMutableArray *articles = [[NSMutableArray alloc] init];
+        for (NSDictionary *dictionary in articleDictionaries){
+            DVMNews *news = [[DVMNews alloc] initWithDictionary:dictionary];
+            if(news){
+                [articles addObject:news];
+            }
+        }
+        completion(articles);
+    }] resume];
 }
 
 + (void)fetchTopHeadlinesWithBlock:(void (^)(NSArray<DVMNews *> * _Nullable))block
 {
     //1) Construct Our URL
     NSURL *baseurl = [[NSURL alloc] initWithString: [DVMNewsApiClient baseUrlString]];
-    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:baseurl resolvingAgainstBaseURL:true];
+    NSURL *slightlyMoreSpecificUrl = [baseurl URLByAppendingPathComponent:@"top-headlines"];
+    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:slightlyMoreSpecificUrl resolvingAgainstBaseURL:true];
     NSURLQueryItem *countryQuery = [[NSURLQueryItem alloc] initWithName:@"country" value:@"us"];
     NSURLQueryItem *apiKeyQuery = [[NSURLQueryItem alloc] initWithName:@"apiKey" value: DVMNewsApiClient.apiKey];
     [components setQueryItems: [[NSArray alloc] initWithObjects:countryQuery, apiKeyQuery, nil]];

@@ -7,12 +7,11 @@
 //
 
 #import "DVMHeadlinesTableViewController.h"
-#import "DVMNewsApiClient.h"
 #import "NewStream-Swift.h"
 
 @interface DVMHeadlinesTableViewController ()
 
-@property(nonatomic, readwrite) NSArray<DVMNews *> *articles;
+
 
 @end
 
@@ -20,12 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [DVMNewsApiClient fetchTopHeadlinesWithBlock:^(NSArray<DVMNews *> * _Nullable articles) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.articles = articles;
-            [[self tableView] reloadData];
-        });
-    }];
+//    [DVMNewsApiClient fetchTopHeadlinesWithBlock:^(NSArray<DVMNews *> * _Nullable articles) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.articles = articles;
+//            [[self tableView] reloadData];
+//        });
+//    }];
 }
 
 #pragma mark - Table view data source

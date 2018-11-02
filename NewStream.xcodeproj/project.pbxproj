@@ -18,6 +18,7 @@
 		F710441B218BE86F00DD7A7F /* DVMHeadlinesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710441A218BE86F00DD7A7F /* DVMHeadlinesTableViewController.m */; };
 		F7104420218BEA3200DD7A7F /* HeadlineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710441F218BEA3200DD7A7F /* HeadlineTableViewCell.swift */; };
 		F7104423218BF50000DD7A7F /* NewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7104422218BF50000DD7A7F /* NewDetailViewController.swift */; };
+		F7104428218CEC9B00DD7A7F /* DVMTwoTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7104427218CEC9B00DD7A7F /* DVMTwoTopicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		F710441E218BEA3200DD7A7F /* NewStream-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewStream-Bridging-Header.h"; sourceTree = "<group>"; };
 		F710441F218BEA3200DD7A7F /* HeadlineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineTableViewCell.swift; sourceTree = "<group>"; };
 		F7104422218BF50000DD7A7F /* NewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailViewController.swift; sourceTree = "<group>"; };
+		F7104426218CEC9B00DD7A7F /* DVMTwoTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVMTwoTopicViewController.h; sourceTree = "<group>"; };
+		F7104427218CEC9B00DD7A7F /* DVMTwoTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DVMTwoTopicViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +74,9 @@
 		F71043E7218B999900DD7A7F /* NewStream */ = {
 			isa = PBXGroup;
 			children = (
-				F710441D218BE88100DD7A7F /* Resources */,
+				F7104424218CEC4200DD7A7F /* Views */,
+				F7104421218BEC4D00DD7A7F /* SupportingFiles */,
+				F7104425218CEC4D00DD7A7F /* Resources */,
 				F7104414218BD6CA00DD7A7F /* Model */,
 				F7104418218BE57000DD7A7F /* APIClients */,
 				F710441C218BE87600DD7A7F /* ViewControllers */,
@@ -100,13 +105,32 @@
 		F710441C218BE87600DD7A7F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7104422218BF50000DD7A7F /* NewDetailViewController.swift */,
 				F7104419218BE86F00DD7A7F /* DVMHeadlinesTableViewController.h */,
 				F710441A218BE86F00DD7A7F /* DVMHeadlinesTableViewController.m */,
+				F7104426218CEC9B00DD7A7F /* DVMTwoTopicViewController.h */,
+				F7104427218CEC9B00DD7A7F /* DVMTwoTopicViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F710441D218BE88100DD7A7F /* Resources */ = {
+		F7104421218BEC4D00DD7A7F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F710441E218BEA3200DD7A7F /* NewStream-Bridging-Header.h */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F7104424218CEC4200DD7A7F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F710441F218BEA3200DD7A7F /* HeadlineTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F7104425218CEC4D00DD7A7F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				F71043E8218B999900DD7A7F /* AppDelegate.h */,
@@ -117,19 +141,9 @@
 				F71043F6218B999A00DD7A7F /* Info.plist */,
 				F710440F218BD04A00DD7A7F /* ApiKeys.plist */,
 				F71043F7218B999A00DD7A7F /* main.m */,
-				F710441F218BEA3200DD7A7F /* HeadlineTableViewCell.swift */,
-				F7104421218BEC4D00DD7A7F /* SupportingFiles */,
-				F7104422218BF50000DD7A7F /* NewDetailViewController.swift */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		F7104421218BEC4D00DD7A7F /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				F710441E218BEA3200DD7A7F /* NewStream-Bridging-Header.h */,
-			);
-			path = SupportingFiles;
+			name = Resources;
+			path = Resources/Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +224,7 @@
 				F71043EA218B999900DD7A7F /* AppDelegate.m in Sources */,
 				F7104417218BD6F600DD7A7F /* DVMNewsApiClient.m in Sources */,
 				F7104420218BEA3200DD7A7F /* HeadlineTableViewCell.swift in Sources */,
+				F7104428218CEC9B00DD7A7F /* DVMTwoTopicViewController.m in Sources */,
 				F710441B218BE86F00DD7A7F /* DVMHeadlinesTableViewController.m in Sources */,
 				F7104413218BD0A200DD7A7F /* DVMNews.m in Sources */,
 			);
@@ -356,14 +371,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77U2457882;
-				INFOPLIST_FILE = "$(SRCROOT)/NewStream/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NewStream/Resources/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.trevoradcock.NewStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "NewStream/Resources/SupportingFiles/NewStream-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewStream/SupportingFiles/NewStream-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,14 +392,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77U2457882;
-				INFOPLIST_FILE = "$(SRCROOT)/NewStream/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NewStream/Resources/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.trevoradcock.NewStream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "NewStream/Resources/SupportingFiles/NewStream-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewStream/SupportingFiles/NewStream-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
