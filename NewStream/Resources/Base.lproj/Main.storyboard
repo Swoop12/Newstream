@@ -29,7 +29,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tLZ-NQ-XHu">
                                             <rect key="frame" x="8" y="8" width="359" height="149.5"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Id-O2-bmV">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Id-O2-bmV">
                                                     <rect key="frame" x="0.0" y="28" width="94" height="93.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9Id-O2-bmV" secondAttribute="height" id="q3J-sR-gWZ"/>
@@ -116,7 +116,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vtk-nX-Sy4">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vtk-nX-Sy4">
                                                 <rect key="frame" x="0.0" y="55" width="375" height="125"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Vtk-nX-Sy4" secondAttribute="height" multiplier="3:1" id="J7j-GJ-X5s"/>

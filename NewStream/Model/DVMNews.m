@@ -20,11 +20,26 @@
     NSString *content = dictionary[@"content"];
     
     if (![title isKindOfClass:[NSString class]] ||
-        ![author isKindOfClass:[NSString class]] ||
-        ![imageUrl isKindOfClass:[NSString class]] ||
+//        ![author isKindOfClass:[NSString class]] ||
+//        ![imageUrl isKindOfClass:[NSString class]] ||
         ![content isKindOfClass:[NSString class]] ||
         ![source isKindOfClass:[NSString class]]){
         return nil;
+    }
+    
+    if ( author == (NSString *)[NSNull null] )
+    {
+        author = nil;
+    }
+    
+//    if ( content == (NSString *)[NSNull null] )
+//    {
+//        content = nil;
+//    }
+    
+    if ( imageUrl == (NSString *)[NSNull null] )
+    {
+        imageUrl = nil;
     }
     
     //2) Actually initalize self and set properties
