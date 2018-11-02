@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DVMNewsApiClient.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [DVMNewsApiClient fetchImageForUrl:@"https://www.gannett-cdn.com/-mm-/10cc64f0b869f41892a33aedf84732975161d6ab/c=0-178-3504-2158/local/-/media/2018/05/18/USATODAY/USATODAY/636622016590872138-XXX-ThinkstockPhotos-482691137-dcb.JPG?width=3200&height=1680&fit=crop" withBlock:^(UIImage * _Nullable photo) {
+        NSLog(@"%@", photo);
+    }];
+    
+    
+    
     return YES;
 }
 
